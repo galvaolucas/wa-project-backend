@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: .
+      target: development
+    environment:
+      APP_SECRET: ${APP_SECRET}
+      APP_WEB_URL: ${APP_WEB_URL}
+      PORT: ${PORT}
+      DB_TYPE: ${DB_TYPE}
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      DB_SRC_BASE: ${DB_SRC_BASE}
+      DB_ENV: ${DB_ENV}
+      DB_PORT: ${DB_PORT}
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - app-connect
+    depends_on:
+      - postgres14-info
+    command: >
+      sh -c "yarn start:dev"
+
+volumes:
+
+networks:
+  app-connect:
+    driver: bridge
