@@ -9,7 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host":"wa-project-challenge.herokuapp.com/",
+    "host":"wa-project-challenge.herokuapp.com",
     "schemes": ["http", "https"],
     "basePath": "/",
     "consumes": [
