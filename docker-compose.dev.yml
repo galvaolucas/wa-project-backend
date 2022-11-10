@@ -25,10 +25,8 @@ services:
       - ${PORT}:${PORT}
     networks:
       - app-connect
-    depends_on:
-      - postgres14-info
     command: >
-      sh -c "yarn start:dev"
+      sh -c "yarn dev"
 
 networks:
   app-connect:
