@@ -6,17 +6,18 @@ services:
       context: .
       target: development
     environment:
-      APP_SECRET: ${APP_SECRET}
-      APP_WEB_URL: ${APP_WEB_URL}
+      APP_URL: ${APP_URL}
+      DB_CONNECT: ${DB_CONNECT}
+      DB_CONNECT_TEST: ${DB_CONNECT_TEST}
       PORT: ${PORT}
       DB_TYPE: ${DB_TYPE}
       DB_HOST: ${DB_HOST}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       DB_NAME: ${DB_NAME}
-      DB_SRC_BASE: ${DB_SRC_BASE}
       DB_ENV: ${DB_ENV}
       DB_PORT: ${DB_PORT}
+      NODE_ENV: ${NODE_ENV}
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
@@ -28,8 +29,6 @@ services:
       - postgres14-info
     command: >
       sh -c "yarn start:dev"
-
-volumes:
 
 networks:
   app-connect:

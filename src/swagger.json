@@ -1,0 +1,162 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API-WA-Project-Swagger",
+        "description": "Testing the application endpoints.",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host":"localhost:3333",
+    "schemes": ["http"],
+    "basePath": "/",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/films": {
+            "get": {
+                "tags": [
+                    "Get Films"
+                ],
+                "summary": "Get all films saved in the API",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Film"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Post Film"
+                ],
+                "summary": "Create a new film in the API",
+                "parameters": [{
+                    "in":"body",
+                    "name":"post film request",
+                    "required": true,
+                    "schema": {
+                        "$ref":"#/definitions/Film"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Film"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Delete All Films in the Database"
+                ],
+                "summary": "Delete all the films in the API",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Database successfully deleted!"
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/films/{id}": {
+            "delete": {
+                "tags": [
+                    "Delete Film By Id"
+                ],
+                "summary": "Delete film in the API by ID",
+                "parameters": [{
+                    "type":"string",
+                    "in":"path",
+                    "name":"id",
+                    "description": "ID of the film you want to delete.",
+                    "required": true
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted!"
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Get Film By Id"
+                ],
+                "summary": "Get a film in the API",
+                "parameters": [{
+                    "type":"string",
+                    "in":"path",
+                    "name":"id",
+                    "description": "ID of the film you want to recover.",
+                    "required": true
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Film"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Film": {
+            "type": "object",
+            "properties": {
+                "movie_banner": {
+                    "type":"string"
+                },
+                "title": {
+                    "type":"string"
+                },
+                "description": {
+                    "type":"string"
+                },
+                "producer": {
+                    "type":"string"
+                },
+                "director": {
+                    "type":"string"
+                }
+            }
+        },
+        "id": {
+            "type": "string"
+        }
+    }
+}
