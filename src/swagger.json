@@ -10,7 +10,7 @@
         }
     },
     "host":"https://wa-project-challenge.herokuapp.com/",
-    "schemes": ["http"],
+    "schemes": ["http", "https"],
     "basePath": "/",
     "consumes": [
         "application/json"

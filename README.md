@@ -1,6 +1,6 @@
-# InfoSistemas-backend-challenge
+# WA Project-backend-challenge
 
-#API created using Node JS, Typeorm (latest) and Express.
+#API created using Node JS with Typescript, Mongo DB, and Express.
 
 #To run the api using docker, use the command in the docker-dev archive, this will create the containers for the api, the database (Postgres) and the pgadmin.
 
