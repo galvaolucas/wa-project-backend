@@ -25,28 +25,8 @@ services:
       - ${PORT}:${PORT}
     networks:
       - app-connect
-    depends_on:
-      - mongo-app
     command: >
       sh -c "yarn dev"
-
-  mongo-app:
-    container_name: ${DB_HOST}
-    image: mongo
-    restart: always
-    volumes:
-      - romeu-data:/data
-    environment:
-      MONGO_DB: ${DB_NAME}
-      MONGO_USER: ${DB_USER}
-      MONGO_PASSWORD: ${DB_PASS}
-    networks:
-      - app-connect
-    ports:
-      - ${DB_PORT}:${DB_PORT}
-
-volumes:
-  romeu-data:
 
 networks:
   app-connect:
