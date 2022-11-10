@@ -19,6 +19,22 @@
         "application/json"
     ],
     "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Health Check"
+                ],
+                "summary": "Check if the API is ON",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "API is down!"
+                    }
+                }
+            }
+        },
         "/films": {
             "get": {
                 "tags": [
